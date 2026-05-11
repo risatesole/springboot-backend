@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+		<pmd.version>3.21.2</pmd.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -126,7 +127,31 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- PMD Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>${pmd.version}</version>
+				<configuration>
+					<targetJdk>${java.version}</targetJdk>
+					<failOnViolation>true</failOnViolation>
+					<printFailingErrors>true</printFailingErrors>
+					<excludes>
+						<!-- Exclude Lombok-generated code patterns -->
+						<exclude>**/*_.java</exclude>
+					</excludes>
+					<rulesets>
+						<ruleset>${project.basedir}/pmd/ruleset.xml</ruleset>
+					</rulesets>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-
 </project>

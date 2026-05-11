@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ruleset name="Custom Rules"
+    xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
+
+    <description>Custom PMD ruleset for Spring Boot project</description>
+
+    <!-- Include all quickstart rules -->
+    <rule ref="rulesets/java/quickstart.xml">
+        <!-- Spring Boot @SpringBootApplication main class is not a utility class -->
+        <exclude name="UseUtilityClass"/>
+        <!-- Allow if/return without braces (common in validation code) -->
+        <exclude name="ControlStatementBraces"/>
+        <!-- Allow toLowerCase()/toUpperCase() without Locale (opinionated) -->
+        <exclude name="UseLocaleWithCaseConversions"/>
+    </rule>
+
+</ruleset>
