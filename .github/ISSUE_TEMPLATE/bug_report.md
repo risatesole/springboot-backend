@@ -1,11 +1,8 @@
-## Type of Issue
-
-- [ ] Bug report
-- [ ] Feature request
-- [ ] Refactor / improvement
-- [ ] Documentation issue
-- [ ] Other
-
+---
+name: Bug Report
+about: Report a bug in the project
+title: "[BUG] "
+labels: bug
 ---
 
 ## Summary
