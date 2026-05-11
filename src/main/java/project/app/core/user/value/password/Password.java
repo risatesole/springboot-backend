@@ -29,8 +29,10 @@ public class Password {
     }
 
     /** Private constructor used by {@link #fromHash(String)}. */
-    private Password(String hashedValue, boolean alreadyHashed) {
-        this.hashedValue = hashedValue;
+    private Password(String value, boolean alreadyHashed) {
+        this.hashedValue = alreadyHashed
+                ? value
+                : PasswordHasher.hash(PasswordValidator.validate(value));
     }
 
     public String getHashedValue() {
@@ -54,8 +56,8 @@ public class Password {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Password)) return false;
-        Password password = (Password) o;
-        return Objects.equals(hashedValue, password.hashedValue);
+        Password other = (Password) o;
+        return hashedValue != null && hashedValue.equals(other.hashedValue);
     }
 
     @Override
