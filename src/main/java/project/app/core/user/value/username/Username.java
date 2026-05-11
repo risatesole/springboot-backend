@@ -1,4 +1,4 @@
-package project.app.core.user.value;
+package project.app.core.user.value.username;
 
 import java.util.Objects;
 

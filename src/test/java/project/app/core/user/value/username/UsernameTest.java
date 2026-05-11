@@ -1,4 +1,4 @@
-package project.app.core.user.value;
+package project.app.core.user.value.username;
 
 import project.app.core.error.UsernameCannotBeNullException;
 import project.app.core.error.UsernameTooShortException;
