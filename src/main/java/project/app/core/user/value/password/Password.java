@@ -1,3 +1,25 @@
+/**
+ * Value object that represents a user password in a secure form.
+ *
+ * This class enforces password safety by:
+ * - Validating raw passwords using PasswordValidator
+ * - Hashing passwords using BCrypt via PasswordHasher
+ * - Never storing or exposing plain-text passwords
+ *
+ * There are two valid ways to create a Password:
+ * - new Password(rawPassword): for user input (validates + hashes)
+ * - Password.fromHash(existingHash): for loading from persistence (database)
+ *
+ * Important security notes:
+ * - Plain-text passwords are never stored after construction
+ * - Equality is based on hashed values only
+ * - toString() is overridden to avoid leaking sensitive data in logs
+ * - Password matching is done via matches() using BCrypt verification
+ *
+ * Because BCrypt uses salting, two identical raw passwords will NOT
+ * produce equal Password objects — always use matches() for comparison.
+ */
+
 package project.app.core.user.value.password;
 
 import java.util.Objects;
