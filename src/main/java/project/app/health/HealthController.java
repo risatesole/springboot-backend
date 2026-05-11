@@ -1,4 +1,4 @@
-package project.app.controller;
+package project.app.health;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
