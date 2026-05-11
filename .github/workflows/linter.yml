@@ -3,8 +3,21 @@ name: PMD Lint
 on:
   push:
     branches: [ "main", "master", "develop" ]
+    paths:
+    - "**/*.java"
+    - "**/*.xml"
+    - "**/*.properties"
+    - "mvnw"
+    - "mvnw.cmd"
+
   pull_request:
     branches: [ "main", "master", "develop" ]
+    paths:
+    - "**/*.java"
+    - "**/*.xml"
+    - "**/*.properties"
+    - "mvnw"
+    - "mvnw.cmd"
 
 jobs:
   pmd:
